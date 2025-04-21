@@ -192,6 +192,11 @@
     }
 
     autoScroll();
+
+    // Periyodik tıklama eventi
+    setInterval(() => {
+      document.body.dispatchEvent(new Event('click'));
+    }, 60000); // Her 60 saniyede bir tıklama
   </script>
 </body>
 </html>
