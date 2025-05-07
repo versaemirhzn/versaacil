@@ -173,19 +173,6 @@
       });
     });
 
-    // Otomatik scroll
-      setInterval(() => {
-        window.scrollTo({ top: currentPos });
-        currentPos += direction * scrollStep;
-
-        if (currentPos + window.innerHeight >= scrollHeight || currentPos <= 0) {
-          direction *= -1;
-        }
-      }, delay);
-    }
-
-    autoScroll();
-
     // Periyodik tıklama eventi
     setInterval(() => {
       document.body.dispatchEvent(new Event('click'));
