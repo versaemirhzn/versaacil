@@ -197,6 +197,11 @@
     setInterval(() => {
       document.body.dispatchEvent(new Event('click'));
     }, 60000); // Her 60 saniyede bir tıklama
+
+    // Sayfayı her 5 dakikada bir yenile
+    setInterval(() => {
+      location.reload();
+    }, 300000); // 300000 ms = 5 dakika
   </script>
 </body>
 </html>
