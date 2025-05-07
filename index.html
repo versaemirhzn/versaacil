@@ -174,13 +174,6 @@
     });
 
     // Otomatik scroll
-    function autoScroll() {
-      const scrollHeight = document.body.scrollHeight;
-      const scrollStep = 1;
-      const delay = 30;
-      let currentPos = 0;
-      let direction = 1;
-
       setInterval(() => {
         window.scrollTo({ top: currentPos });
         currentPos += direction * scrollStep;
