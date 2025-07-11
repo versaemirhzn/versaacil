@@ -67,11 +67,11 @@
     }
 
     .eczane-panel {
-      width: 100%;
-      max-width: 1600px;
+      width: 110%;
+      max-width: 1700px;
       background: #e6f3ff;
-      padding: 30px;
-      border-radius: 20px;
+      padding: 40px;
+      border-radius: 40px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       display: flex;
       justify-content: center;
@@ -104,6 +104,19 @@
       margin-right: 10px;
       transform: scale(1.3);
     }
+
+    .hy-on-duty-add {
+      width: 100%;
+      height: 800px;
+      padding: 10px;
+    }
+
+    #hy-iframe {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+      border: 3px solid #13a9e3;
+    }
   </style>
 </head>
 <body>
@@ -118,10 +131,12 @@
 
   <main>
     <div class="eczane-panel">
-      <div style="margin:auto;text-align:center;width:100%;max-width:1500px;">
-        <a title="En Yakın Nöbetçi Eczane - enyakineczane.com.tr" href="https://enyakineczane.com.tr/" target="_blank">
-        </a>
-        <iframe src="https://enyakineczane.com.tr/iframe/?city=50&district=1543&zoom=2.7" name="Nevşehir Nöbetçi Eczane - enyakineczane.com.tr" style="width:100%;height:800px;border:none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <div class="hy-on-duty-add">
+        <iframe src="https://www.hastanemyanimda.com/nobetci-eczane-sitene-ekle/50/Merkez" 
+                name="50 - Nevşehir/Merkez Nöbetçi Eczaneler" 
+                id="hy-iframe" 
+                referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
       </div>
     </div>
   </main>
@@ -178,10 +193,10 @@
       document.body.dispatchEvent(new Event('click'));
     }, 60000); // Her 60 saniyede bir tıklama
 
-    // Sayfayı her 3 saatte bir yenile
+    // Sayfayı her 5 dakikada bir yenile
     setInterval(() => {
       location.reload();
-    }, 10800000); // 10.800.000 ms = 3 saat
+    }, 300000); // 300000 ms = 5 dakika
   </script>
 </body>
 </html>
