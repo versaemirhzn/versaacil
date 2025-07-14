@@ -4,14 +4,18 @@
   <meta charset="UTF-8" />
   <title>Versa Hastanesi Acil Servis</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background-color: #f0f2f5;
-      margin: 0;
-      padding: 0;
       width: 1920px;
       height: 1080px;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     header {
@@ -26,7 +30,6 @@
       border-bottom: 2px solid #ccc;
       z-index: 9999;
       backdrop-filter: blur(5px);
-      box-sizing: border-box;
     }
 
     .logo {
@@ -41,13 +44,12 @@
     .info h1 {
       font-size: 65px;
       color: #333;
-      margin: 0;
     }
 
     .info h2 {
       font-size: 48px;
       color: #007bff;
-      margin: 10px 0 0;
+      margin-top: 10px;
     }
 
     .doctor-photo {
@@ -58,42 +60,24 @@
     }
 
     main {
-      padding: 230px 30px 130px;
       display: flex;
       justify-content: center;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      box-sizing: border-box;
+      align-items: flex-start;
+      padding: 230px 30px 130px;
     }
 
     .eczane-panel {
       width: 100%;
-      background: #ffffff;
-      padding: 30px;
+      height: 1000px;
+      background: #e6f3ff;
+      padding: 0;
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      position: relative;
+      text-align: center;
       overflow: hidden;
-      box-sizing: border-box;
-      height: 850px;
-      margin-top: 30px;
-    }
-
-    .iframe-wrapper {
-      width: 100%;
-      height: 1400px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .iframe-wrapper iframe {
-      width: 100%;
-      height: 1400px;
-      border: none;
-      scale: 2.5;
-      transform-origin: top left;
-      margin-left: -800px;
+      font-size: 150px;
+      font-weight: 600;
+      color: #222;
     }
 
     .doctor-list {
@@ -109,8 +93,7 @@
       flex-wrap: wrap;
       z-index: 9999;
       backdrop-filter: blur(5px);
-      font-size: 20px;
-      box-sizing: border-box;
+      font-size: 22px;
     }
 
     .doctor {
@@ -118,9 +101,9 @@
       padding: 10px 20px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      font-weight: 600;
       cursor: pointer;
-      display: flex;
-      align-items: center;
+      user-select: none;
     }
 
     .doctor input {
@@ -128,83 +111,94 @@
       transform: scale(1.3);
       cursor: pointer;
     }
-
   </style>
 </head>
 <body>
   <header>
-    <img src="https://www.versahastanesi.com.tr/assets/media/versahastanesi-logo.jpg" class="logo" alt="Versa Hastanesi Logosu" />
+    <img src="https://www.versahastanesi.com.tr/assets/media/versahastanesi-logo.jpg" class="logo" alt="Versa Hastanesi Logosu">
     <div class="info">
       <h1>Versa Hastanesi Acil Servis</h1>
       <h2 id="selected-doctor">Lütfen bir doktor seçin</h2>
     </div>
-    <img id="doctor-photo" class="doctor-photo" src="" alt="Doktor Fotoğrafı" />
+    <img id="doctor-photo" class="doctor-photo" src="" alt="Doktor Fotoğrafı">
   </header>
 
   <main>
     <div class="eczane-panel">
-      <div class="iframe-wrapper">
-        <iframe src="https://nobetcieczanebul.com/nobet-nevsehir-merkez-eczaneleri" allowfullscreen></iframe>
-      </div>
+      <!-- Eczaneleri.NET Nöbetçi Eczane Widget-->
+      <div class="pharmacy-container"></div>
+      <script>
+        const pharmacyiFrame = {
+          "color1":"f44336",
+          "color2":"16537e",
+          "city":"nevsehir",
+          "county":"merkez",
+          "type":"default-iframe",
+          "width": 900,
+          "height": 1000
+        }
+      </script>
+      <script src="https://eczaneleri.net/asset/eczane/js/iframe/iframe.js" type="text/javascript" async></script>
+      <!-- Eczaneleri.NET Nöbetçi Eczane Widget-->
     </div>
   </main>
 
   <div class="doctor-list">
     <label class="doctor">
-      <input type="checkbox" name="doctor" value="Dr. Muharrem UZTETİK"
-        data-photo="https://www.versahastanesi.com.tr/assets/media/acil-doktoru-muharrem-uztetik_doktorLarge.jpg" />
+      <input type="checkbox" name="doctor" value="Dr. Muharrem UZTETİK" data-photo="https://www.versahastanesi.com.tr/assets/media/acil-doktoru-muharrem-uztetik_doktorLarge.jpg">
       Dr. Muharrem UZTETİK
     </label>
     <label class="doctor">
-      <input type="checkbox" name="doctor" value="Dr. Şükrü ARDIÇ"
-        data-photo="https://www.versahastanesi.com.tr/assets/media/sukruardic_doktorLarge.jpg" />
+      <input type="checkbox" name="doctor" value="Dr. Şükrü ARDIÇ" data-photo="https://www.versahastanesi.com.tr/assets/media/sukruardic_doktorLarge.jpg">
       Dr. Şükrü ARDIÇ
     </label>
     <label class="doctor">
-      <input type="checkbox" name="doctor" value="Dr. Ali AĞCA"
-        data-photo="https://www.versahastanesi.com.tr/assets/media/dsc-0304-min_doktorLarge.jpg" />
+      <input type="checkbox" name="doctor" value="Dr. Ali AĞCA" data-photo="https://www.versahastanesi.com.tr/assets/media/dsc-0304-min_doktorLarge.jpg">
       Dr. Ali AĞCA
     </label>
     <label class="doctor">
-      <input type="checkbox" name="doctor" value="Dr. Ahmet Nuri ÖZDEMİR"
-        data-photo="https://www.versahastanesi.com.tr/assets/media/ahmet-nuri-ozdemir_doktorLarge.jpg" />
+      <input type="checkbox" name="doctor" value="Dr. Ahmet Nuri ÖZDEMİR" data-photo="https://www.versahastanesi.com.tr/assets/media/ahmet-nuri-ozdemir_doktorLarge.jpg">
       Dr. Ahmet Nuri ÖZDEMİR
     </label>
   </div>
 
   <script>
+    // Doktor seçimi
     const checkboxes = document.querySelectorAll('input[name="doctor"]');
-    const selectedDoctor = document.getElementById('selected-doctor');
-    const doctorPhoto = document.getElementById('doctor-photo');
-    const savedDoctor = localStorage.getItem('selectedDoctor');
-    const savedPhoto = localStorage.getItem('doctorPhoto');
+    const selectedDoctor = document.getElementById("selected-doctor");
+    const doctorPhoto = document.getElementById("doctor-photo");
+
+    const savedDoctor = localStorage.getItem("selectedDoctor");
+    const savedPhoto = localStorage.getItem("doctorPhoto");
 
     if (savedDoctor && savedPhoto) {
       selectedDoctor.textContent = savedDoctor;
       doctorPhoto.src = savedPhoto;
-      checkboxes.forEach((cb) => {
+      checkboxes.forEach(cb => {
         cb.checked = cb.value === savedDoctor;
       });
     }
 
-    checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener('change', () => {
-        checkboxes.forEach((cb) => (cb.checked = false));
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener("change", () => {
+        checkboxes.forEach(cb => cb.checked = false);
         checkbox.checked = true;
         selectedDoctor.textContent = checkbox.value;
         doctorPhoto.src = checkbox.dataset.photo;
-        localStorage.setItem('selectedDoctor', checkbox.value);
-        localStorage.setItem('doctorPhoto', checkbox.dataset.photo);
+        localStorage.setItem("selectedDoctor", checkbox.value);
+        localStorage.setItem("doctorPhoto", checkbox.dataset.photo);
       });
     });
 
+    // Periyodik tıklama eventi
     setInterval(() => {
       document.body.dispatchEvent(new Event('click'));
-    }, 60000); // 60 saniyede bir tıklama
+    }, 60000); // Her 60 saniyede bir tıklama
 
+    // Sayfayı her 5 dakikada bir yenile
     setInterval(() => {
       location.reload();
-    }, 300000); // 5 dakikada bir yenile
+    }, 300000); // 300000 ms = 5 dakika
   </script>
 </body>
 </html>
