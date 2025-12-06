@@ -1,188 +1,225 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <title>Versa Hastanesi Acil Servis</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+!DOCTYPE html
+html lang=tr
+head
+  meta charset=UTF-8 
+  titleVersa Hastanesi Acil Servistitle
+
+  style
+     {
+      box-sizing border-box;
+      margin 0;
+      padding 0;
     }
 
     html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden; /* Kaydırma engellendi */
-      font-family: Arial, sans-serif;
-      background-color: #f0f2f5;
+      width 100%;
+      height 100%;
+      overflow hidden;
+      font-family Arial, sans-serif;
+      background-color #f0f2f5;
     }
 
     body {
-      width: 1920px;
-      height: 1080px;
+      width 1920px;
+      height 1080px;
     }
 
+     HEADER 
     header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 40px;
-      background-color: #ffffffee;
-      border-bottom: 2px solid #ccc;
-      z-index: 9999;
-      backdrop-filter: blur(5px);
+      position fixed;
+      top 0;
+      width 100%;
+      display flex;
+      align-items center;
+      justify-content space-between;
+      padding 20px 40px;
+      background-color #ffffffee;
+      border-bottom 2px solid #ccc;
+      z-index 9999;
+      backdrop-filter blur(5px);
     }
 
     .logo {
-      height: 100px;
+      height 100px;
     }
 
     .info {
-      text-align: center;
-      flex-grow: 1;
+      text-align center;
+      flex-grow 1;
     }
 
     .info h1 {
-      font-size: 65px;
-      color: #333;
+      font-size 65px;
+      color #333;
     }
 
     .info h2 {
-      font-size: 48px;
-      color: #007bff;
-      margin-top: 10px;
+      font-size 48px;
+      color #007bff;
+      margin-top 10px;
     }
 
     .doctor-photo {
-      height: 250px;
-      width: 220px;
-      border-radius: 12px;
-      object-fit: cover;
+      height 250px;
+      width 220px;
+      border-radius 12px;
+      object-fit cover;
     }
 
+     MAIN 
     main {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 230px 30px 130px;
+      display flex;
+      justify-content center;
+      align-items flex-start;
+      padding 230px 30px 130px;
     }
 
     .eczane-panel {
-      width: 100%;
-      max-width: 1600px;
-      background: #e6f3ff;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: center;
+      width 100%;
+      max-width 1600px;
+      background #e6f3ff;
+      padding 30px;
+      border-radius 20px;
+      box-shadow 0 8px 20px rgba(0, 0, 0, 0.1);
+      display flex;
+      justify-content center;
     }
 
+     DOKTOR LİSTESİ 
     .doctor-list {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #ffffffee;
-      padding: 20px 0;
-      border-top: 1px solid #ccc;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      z-index: 9999;
-      backdrop-filter: blur(5px);
+      position fixed;
+      bottom 0;
+      width 100%;
+      background-color #ffffffee;
+      padding 20px 0;
+      border-top 1px solid #ccc;
+      display flex;
+      justify-content center;
+      gap 40px;
+      flex-wrap wrap;
+      z-index 9999;
+      backdrop-filter blur(5px);
     }
 
     .doctor {
-      font-size: 20px;
-      background-color: #e6f0ff;
-      padding: 10px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      font-size 20px;
+      background-color #e6f0ff;
+      padding 10px 20px;
+      border-radius 12px;
+      box-shadow 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .doctor input {
-      margin-right: 10px;
-      transform: scale(1.3);
+      margin-right 10px;
+      transform scale(1.3);
     }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="https://www.versahastanesi.com.tr/assets/media/versahastanesi-logo.jpg" class="logo" alt="Versa Hastanesi Logosu">
-    <div class="info">
-      <h1>Versa Hastanesi Acil Servisi</h1>
-      <h2 id="selected-doctor">Lütfen bir doktor seçin</h2>
-    </div>
-    <img id="doctor-photo" class="doctor-photo" src="" alt="Doktor Fotoğrafı">
-  </header>
 
-  <main>
-    <div class="eczane-panel">
-      <div style="margin:auto;text-align:center;width:100%;max-width:1500px;">
-        <a title="En Yakın Nöbetçi Eczane - enyakineczane.com.tr" href="https://enyakineczane.com.tr/" target="_blank"></a>
-        <iframe src="https://enyakineczane.com.tr/iframe/?city=50&district=1543&zoom=2.7" name="Nevşehir Nöbetçi Eczane - enyakineczane.com.tr" style="width:100%;height:800px;border:none;" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      </div>
-    </div>
-  </main>
+  style
+head
 
-  <div class="doctor-list">
-    <label class="doctor">
-      <input type="checkbox" name="doctor" value="Dr. Nuh YAZ" data-photo="https://www.versahastanesi.com.tr/assets/media/20251003-094728-1_doktorLarge.jpg">
+body
+
+  !-- HEADER --
+  header
+    img src=httpswww.versahastanesi.com.trassetsmediaversahastanesi-logo.jpg class=logo alt=Versa Hastanesi Logosu
+
+    div class=info
+      h1Versa Hastanesi Acil Servisih1
+      h2 id=selected-doctorLütfen bir doktor seçinh2
+    div
+
+    img id=doctor-photo class=doctor-photo src= alt=Doktor Fotoğrafı
+  header
+
+  !-- MAIN --
+  main
+    div class=eczane-panel
+      !-- YENİ ECZANE İFRAME BURAYA GELİYOR --
+      div style=marginauto;text-aligncenter;width100%;max-width1500px;
+        
+        div class=pharmacy-containerdiv
+
+        script
+          const pharmacyiFrame = {
+            color1 00d2d3,
+            color2 17a2b8,
+            city nevsehir,
+            county merkez,
+            type default-iframe,
+            width 1500,
+            height 800
+          };
+        script
+
+        script src=httpseczaneleri.netasseteczanejsiframeiframe.js asyncscript
+
+      div
+    div
+  main
+
+  !-- DOKTOR SEÇİM PANELİ --
+  div class=doctor-list
+    label class=doctor
+      input type=checkbox name=doctor value=Dr. Nuh YAZ data-photo=httpswww.versahastanesi.com.trassetsmedia20251003-094728-1_doktorLarge.jpg
       Dr. Nuh YAZ
-    </label>
-    <label class="doctor">
-      <input type="checkbox" name="doctor" value="Dr. Şükrü ARDIÇ" data-photo="https://www.versahastanesi.com.tr/assets/media/sukruardic_doktorLarge.jpg">
+    label
+
+    label class=doctor
+      input type=checkbox name=doctor value=Dr. Şükrü ARDIÇ data-photo=httpswww.versahastanesi.com.trassetsmediasukruardic_doktorLarge.jpg
       Dr. Şükrü ARDIÇ
-    </label>
-    <label class="doctor">
-      <input type="checkbox" name="doctor" value="Dr. Ali AĞCA" data-photo="https://www.versahastanesi.com.tr/assets/media/dsc-0304-min_doktorLarge.jpg">
+    label
+
+    label class=doctor
+      input type=checkbox name=doctor value=Dr. Ali AĞCA data-photo=httpswww.versahastanesi.com.trassetsmediadsc-0304-min_doktorLarge.jpg
       Dr. Ali AĞCA
-    </label>
-    <label class="doctor">
-      <input type="checkbox" name="doctor" value="Dr. Ahmet Nuri ÖZDEMİR" data-photo="https://www.versahastanesi.com.tr/assets/media/ahmet-nuri-ozdemir_doktorLarge.jpg">
+    label
+
+    label class=doctor
+      input type=checkbox name=doctor value=Dr. Ahmet Nuri ÖZDEMİR data-photo=httpswww.versahastanesi.com.trassetsmediaahmet-nuri-ozdemir_doktorLarge.jpg
       Dr. Ahmet Nuri ÖZDEMİR
-    </label>
-  </div>
+    label
+  div
 
-  <script>
-    const checkboxes = document.querySelectorAll('input[name="doctor"]');
-    const selectedDoctor = document.getElementById("selected-doctor");
-    const doctorPhoto = document.getElementById("doctor-photo");
+  !-- SCRIPT --
+  script
+    const checkboxes = document.querySelectorAll('input[name=doctor]');
+    const selectedDoctor = document.getElementById(selected-doctor);
+    const doctorPhoto = document.getElementById(doctor-photo);
 
-    const savedDoctor = localStorage.getItem("selectedDoctor");
-    const savedPhoto = localStorage.getItem("doctorPhoto");
+     LOCAL STORAGE YÜKLE 
+    const savedDoctor = localStorage.getItem(selectedDoctor);
+    const savedPhoto = localStorage.getItem(doctorPhoto);
 
     if (savedDoctor && savedPhoto) {
       selectedDoctor.textContent = savedDoctor;
       doctorPhoto.src = savedPhoto;
-      checkboxes.forEach(cb => {
-        cb.checked = cb.value === savedDoctor;
-      });
+      checkboxes.forEach(cb = cb.checked = (cb.value === savedDoctor));
     }
 
-    checkboxes.forEach(checkbox => {
-      checkbox.addEventListener("change", () => {
-        checkboxes.forEach(cb => cb.checked = false);
+     DOKTOR DEĞİŞİMİ 
+    checkboxes.forEach(checkbox = {
+      checkbox.addEventListener(change, () = {
+        checkboxes.forEach(cb = cb.checked = false);
         checkbox.checked = true;
+
         selectedDoctor.textContent = checkbox.value;
         doctorPhoto.src = checkbox.dataset.photo;
-        localStorage.setItem("selectedDoctor", checkbox.value);
-        localStorage.setItem("doctorPhoto", checkbox.dataset.photo);
+
+        localStorage.setItem(selectedDoctor, checkbox.value);
+        localStorage.setItem(doctorPhoto, checkbox.dataset.photo);
       });
     });
 
-    setInterval(() => {
-      document.body.dispatchEvent(new Event('click'));
+     KIOSK İÇİN TIKLAMA TAZELEME 
+    setInterval(() = {
+      document.body.dispatchEvent(new Event(click));
     }, 60000);
 
-    setInterval(() => {
+     5 DAKİKA OTOMATİK YENİLEME 
+    setInterval(() = {
       location.reload();
     }, 300000);
-  </script>
-</body>
-</html>
+  script
+
+body
+html
